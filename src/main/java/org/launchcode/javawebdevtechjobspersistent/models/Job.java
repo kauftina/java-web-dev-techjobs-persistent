@@ -1,6 +1,8 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Job{
@@ -9,6 +11,8 @@ public class Job{
     @GeneratedValue
     private int id;
 
+    @NotBlank(message="Name is required")
+    @Size(min = 3, max = 80, message = "Name must be between 3 and 80 characters long" )
     private String name;
 
     private String employer;
