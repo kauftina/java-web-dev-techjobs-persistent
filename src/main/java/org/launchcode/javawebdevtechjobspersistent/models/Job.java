@@ -3,40 +3,44 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity {
 
 
+    @ManyToOne
+    private Employer employer;
 
-    private String Employer;
-    private String skills;
+    @ManyToMany
+    private List<Skill> skills = new ArrayList<>();
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
+    public Job(Employer anEmployer, List<Skill> someSkills) {
         super();
-        this.Employer = anEmployer;
+        this.employer = anEmployer;
         this.skills = someSkills;
     }
 
     // Getters and setters.
 
 
-    public String getEmployer() {
-        return Employer;
+    public Employer getEmployer() {
+        return this.employer;
     }
 
-    public void setEmployer(String employer) {
-        this.Employer = employer;
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
     }
 
-    public String getSkills() {
-        return skills;
+    public List<Skill> getSkills() {
+        return this.skills;
     }
 
-    public void setSkills(String skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 }
