@@ -5,17 +5,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Job{
+public class Job extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
 
-    @NotBlank(message="Name is required")
-    @Size(min = 3, max = 80, message = "Name must be between 3 and 80 characters long" )
-    private String name;
 
-    private String employer;
+    private String Employer;
     private String skills;
 
     public Job() {
@@ -23,26 +17,19 @@ public class Job{
 
     public Job(String anEmployer, String someSkills) {
         super();
-        this.employer = anEmployer;
+        this.Employer = anEmployer;
         this.skills = someSkills;
     }
 
     // Getters and setters.
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmployer() {
-        return employer;
+        return Employer;
     }
 
     public void setEmployer(String employer) {
-        this.employer = employer;
+        this.Employer = employer;
     }
 
     public String getSkills() {
