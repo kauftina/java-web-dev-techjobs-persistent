@@ -13,12 +13,11 @@ public class Skill extends AbstractEntity {
     private final List<Job> jobs = new ArrayList<>();
 
 
-    public Skill() {
-    }
         @Size (max = 800, message = "Too long")
         private String description;
 
-
+        public Skill() {
+    }
     public String getDescription() {
         return description;
     }
